@@ -21,7 +21,7 @@ Open-source reference implementation of [*Mixed Variational Finite Elements for 
 ## To download and build
 
 ```
-git clone --recurse-submodules https://github.com/tytrusty/mixed-fem.git
+git clone --recurse-submodules https://github.com/tytrusty/mfem.git
 cd mixed-fem
 mkdir build
 cd build
