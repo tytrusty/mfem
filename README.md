@@ -5,7 +5,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Open-source reference implementation of *Mixed Variational Finite Elements for Implicit Simulation of Deformables*
+Open-source reference implementation of [*Mixed Variational Finite Elements for Implicit Simulation of Deformables*](https://dl.acm.org/doi/abs/10.1145/3550469.3555418)
 
 ## Files
 
