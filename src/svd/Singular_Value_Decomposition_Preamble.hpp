@@ -52,7 +52,11 @@
 #endif
 
 #ifdef USE_NEON_IMPLEMENTATION
+#if defined(__aarch64__)
+#include <arm_neon.h>
+#else // Arm32 fallback
 #include "sse2neon.h"
+#endif
 #endif
 
 #ifdef USE_SCALAR_IMPLEMENTATION
@@ -66,6 +70,9 @@
 // Changed to inline
 inline float rsqrt(const float f)
 {
+#if defined(__aarch64__)
+    return vrsqrteq_f32(vdupq_n_f32(f))[0];
+#endif
     float buf[4];
     buf[0]=f;
     __m128 v=_mm_loadu_ps(buf);
