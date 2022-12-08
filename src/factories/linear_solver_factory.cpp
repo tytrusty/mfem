@@ -3,7 +3,6 @@
 #include "EigenTypes.h"
 #include "linear_solvers/eigen_solver.h"
 #include "linear_solvers/eigen_iterative_solver.h"
-#include "linear_solvers/affine_pcg.h"
 #include "linear_solvers/linear_system.h"
 #include "linear_solvers/preconditioners.h"
 #include "linear_solvers/subspace_matrix.h"
