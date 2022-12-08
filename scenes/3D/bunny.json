@@ -12,7 +12,7 @@
   "max_linesearch_iterations": 20,
   "objects": [
     {
-      "path": "../models/coarse_bunny.mesh",
+      "path": "../models/mesh/coarse_bunny.mesh",
       "offset": [0.0, 5.0, 0.0],
       "material_index": 0,
       "boundary_condition": {

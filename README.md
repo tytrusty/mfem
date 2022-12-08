@@ -31,12 +31,17 @@ make -j4
 
 ## Usage
 
-There are two simulation executables for 2D and 3D simulation, which in the build directory will be `bin/sim2d` and `bin/sim3d`. The best way to use these executables is by passing in a scene JSON file, which we include examples of and an outline of the format in the `scenes` directory.
+There are two simulation executables for 2D and 3D simulation, which in the build directory will be `bin/sim2d` and `bin/sim3d`. These executables a scene JSON file, which we include examples of in the `scenes` directory.
 
 For example from your build directory try executing:
 ```
-./bin/sim2d ../scenes/2D/trampoline.json
+./bin/sim2d ../scenes/2D/square.json
 ```
+or for a 3D example
+```
+./bin/sim3d ../scenes/3D/boat.json
+```
+
 
 After launching the application, you can use the GUI to start/stop/reset the simulation as well as modify many of the parameters. Currently there is no headless version since I think the GUI is much more fun :). 
 

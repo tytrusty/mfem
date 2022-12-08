@@ -64,7 +64,6 @@ template <int DIM> void NewtonOptimizer<DIM>::step() { state_.data_.clear();
     state_.data_.add("Energy res", res);
     state_.data_.add("Newton dec", grad_norm);
     state_.data_.add("alpha ", alpha);
-    state_.data_.add("kappa ", state_.config_->kappa);
     ++i;
     Base::callback(state_);
 

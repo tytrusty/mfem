@@ -12,12 +12,18 @@ namespace mfem {
 
   };
 
-  template <typename Scalar, int Ordering>
-  class AffinePCG : public LinearSolver<Scalar, Ordering> {
+  template <typename Scalar, int DIM>
+  class AffinePCG : public LinearSolver<Scalar,DIM> {
+
+    typedef LinearSolver<Scalar, DIM> Base;
+
   public:
 
-    AffinePCG(std::shared_ptr<Mesh> mesh,
-        std::shared_ptr<SimConfig> config) : config_(config) {
+    AffinePCG(SimState<DIM>* state) : LinearSolver<Scalar,DIM>(state) {
+
+
+      const auto config = state->config_;
+      const auto mesh = state->mesh_;
 
       double k = config->h * config->h;
       double ym = 1e11;
@@ -56,7 +62,7 @@ namespace mfem {
       T0_ = mesh->projection_matrix()*T0_;
     }
 
-    void compute(const Eigen::SparseMatrix<Scalar, Ordering>& A) override {
+    void compute(const Eigen::SparseMatrix<Scalar, Eigen::RowMajor>& A) override {
       lhs_ = A;
     }
 
@@ -65,18 +71,20 @@ namespace mfem {
       Eigen::Matrix<double, 12, 1> x_affine;  
       x_affine = (T0_.transpose()*lhs_*T0_).lu().solve(T0_.transpose()*b);
       x_ = T0_*x_affine;
+
       int niter = pcg(x_, lhs_ , b, tmp_r_, tmp_z_, tmp_zm1_, tmp_p_, tmp_Ap_,
-          solver_, config_->itr_tol, config_->max_iterative_solver_iters);
-      std::cout << "  - CG iters: " << niter;
+          solver_, config->itr_tol, config->max_iterative_solver_iters);
+
       double relative_error = (lhs_*x_ - b).norm() / b.norm(); 
-      std::cout << " rel error: " << relative_error << " abs error: " << (lhs_*x_-b).norm() << std::endl;
+      std::cout << "  - CG iters: " << niter;
+      std::cout << " rel error: " << relative_error
+        << " abs error: " << (lhs_*x_-b).norm() << std::endl;
       return x_;
     }
 
   private:
-    std::shared_ptr<SimConfig> config_;
-    Eigen::SparseMatrix<Scalar, Ordering> lhs_;
-    Eigen::SimplicialLDLT<Eigen::SparseMatrix<Scalar, Ordering>> solver_;
+    Eigen::SparseMatrix<Scalar, Eigen::RowMajor> lhs_;
+    Eigen::SimplicialLDLT<Eigen::SparseMatrix<Scalar, Eigen::RowMajor>> solver_;
     Eigen::MatrixXd T0_;
     Eigen::VectorXd x_;
 

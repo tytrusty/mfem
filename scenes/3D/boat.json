@@ -8,17 +8,18 @@
   "linear_solver": "eigen-pcg-IC",
   "enable_ccd": false,
   "boundary_condition": "onepoint",
-  "max_newton_iterations": 10,
+  "max_newton_iterations": 5,
   "max_linesearch_iterations": 20,
   "max_iterative_solver_iters": 1000,
-  "iterative_solver_tolerance": 1e-2,
-  "initial_state": {
+  "iterative_solver_tolerance": 1e-1,
+  "initial_state_0": {
+    "comment": "remove the _0 to start from a deformed state",
     "x_path": "../scenes/data/boat_x_0009.dmat",
     "v_path": "../scenes/data/boat_v_0009.dmat"
   },
   "objects": [
     {
-      "path": "../models/boat.mesh",
+      "path": "../models/mesh/boat.mesh",
       "offset": [0.0, 5.0, 0.0],
       "material_index": 0,
       "boundary_condition": {

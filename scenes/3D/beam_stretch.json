@@ -8,11 +8,11 @@
   "linear_solver": "cholmod",
   "enable_ccd": false,
   "boundary_condition": "stretch",
-  "max_newton_iterations": 10,
+  "max_newton_iterations": 5,
   "max_linesearch_iterations": 20,
   "objects": [
     {
-      "path": "../models/beam_5k.mesh",
+      "path": "../models/mesh/beam.mesh",
       "offset": [0.0, 0.0, 0.0],
       "material_index": 0,
       "boundary_condition": {
