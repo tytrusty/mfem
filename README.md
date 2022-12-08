@@ -22,7 +22,7 @@ Open-source reference implementation of [*Mixed Variational Finite Elements for 
 
 ```
 git clone --recurse-submodules https://github.com/tytrusty/mfem.git
-cd mixed-fem
+cd mfem
 mkdir build
 cd build
 cmake ..
