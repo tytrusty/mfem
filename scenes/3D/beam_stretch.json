@@ -1,0 +1,36 @@
+{
+  "dt": 0.034,
+  "body_force": [0.0, 0.0, 0.0],
+  "print_timing": true,
+  "print_stats": true,
+  "optimizer": "newton",
+  "time_integrator": "BDF1",
+  "linear_solver": "cholmod",
+  "enable_ccd": false,
+  "boundary_condition": "stretch",
+  "max_newton_iterations": 10,
+  "max_linesearch_iterations": 20,
+  "objects": [
+    {
+      "path": "../models/beam_5k.mesh",
+      "offset": [0.0, 0.0, 0.0],
+      "material_index": 0,
+      "boundary_condition": {
+        "type": "stretch",
+        "ratio": 0.01,
+        "velocity": -0.1,
+        "axis": 0
+      }
+   }
+  ],
+  "material_models": [
+    {
+      "youngs_modulus": 1e6,
+      "poissons_ratio": 0.45,
+      "density": 1e3,
+      "energy": "Neohookean"
+    }
+  ],
+  "mixed_variables": ["mixed-stretch"],
+  "variables": []
+}

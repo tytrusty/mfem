@@ -1,0 +1,40 @@
+{
+  "dt": 0.0333,
+  "body_force": [0.0, -9.8, 0.0],
+  "print_timing": true,
+  "print_stats": true,
+  "optimizer": "newton",
+  "time_integrator": "BDF1",
+  "linear_solver": "eigen-pcg-IC",
+  "enable_ccd": false,
+  "boundary_condition": "onepoint",
+  "max_newton_iterations": 10,
+  "max_linesearch_iterations": 20,
+  "max_iterative_solver_iters": 1000,
+  "iterative_solver_tolerance": 1e-2,
+  "initial_state": {
+    "x_path": "../scenes/data/boat_x_0009.dmat",
+    "v_path": "../scenes/data/boat_v_0009.dmat"
+  },
+  "objects": [
+    {
+      "path": "../models/boat.mesh",
+      "offset": [0.0, 5.0, 0.0],
+      "material_index": 0,
+      "boundary_condition": {
+        "type": "hangends",
+        "ratio": 0.1
+      }
+    }
+  ],
+  "material_models": [
+    {
+      "youngs_modulus": 1e5,
+      "poissons_ratio": 0.45,
+      "density": 1e3,
+      "energy": "Stable-Neohookean"
+    }
+  ],
+  "mixed_variables": ["mixed-stretch"],
+  "variables": []
+}

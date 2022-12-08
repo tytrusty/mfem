@@ -1,0 +1,33 @@
+{
+  "dt": 0.0333,
+  "body_force": [0.0, 0.0, 0.0],
+  "print_timing": true,
+  "print_stats": true,
+  "optimizer": "newton",
+  "time_integrator": "BDF1",
+  "linear_solver": "affine-pcg",
+  "enable_ccd": false,
+  "boundary_condition": "onepoint",
+  "max_newton_iterations": 5,
+  "max_linesearch_iterations": 20,
+  "objects": [
+    {
+      "path": "../models/corona_lo.mesh",
+      "offset": [0.0, 0.0, 0.0],
+      "material_index": 0,
+      "boundary_condition": {
+        "type": "randomize"
+      }
+    }
+  ],
+  "material_models": [
+    {
+      "youngs_modulus": 1e6,
+      "poissons_ratio": 0.45,
+      "density": 1e3,
+      "energy": "Corot"
+    }
+  ],
+  "mixed_variables": ["mixed-stretch"],
+  "variables": []
+}

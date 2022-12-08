@@ -1,0 +1,113 @@
+{
+  "dt": 0.0333,
+  "body_force": [0.0, -9.8, 0.0],
+  "print_timing": true,
+  "print_stats": true,
+  "optimizer": "newton",
+  "time_integrator": "BDF1",
+  "linear_solver": "cholmod",
+  "enable_ccd": false,
+  "max_newton_iterations": 10,
+  "max_linesearch_iterations": 20,
+  "objects": [
+    {
+      "path": "../models/obj/square_xy_145.obj",
+      "offset": [0.0, 0.0, 0.0],
+      "material_index": 0,
+      "boundary_condition": {
+        "type": "hang",
+        "ratio": 0.1,
+        "axis": 0
+      }
+    },
+    {
+      "path": "../models/obj/square_xy_145.obj",
+      "offset": [0.0, 3.0, 0.0],
+      "material_index": 0,
+      "boundary_condition": {
+        "type": "scale"
+      }
+    },
+    {
+      "path": "../models/obj/square_xy_145.obj",
+      "offset": [3.0, 0.0, 0.0],
+      "material_index": 0,
+      "boundary_condition": {
+        "type": "onepoint"
+      }
+    },
+    {
+      "path": "../models/obj/square_xy_145.obj",
+      "offset": [3.0, 3.0, 0.0],
+      "material_index": 0,
+      "boundary_condition": {
+        "type": "hangends",
+        "ratio": 0.01
+      }
+    },
+    {
+      "path": "../models/obj/square_xy_145.obj",
+      "offset": [6.0, 3.0, 0.0],
+      "material_index": 0,
+      "boundary_condition": {
+        "type": "hangends",
+        "ratio": 0.01,
+        "axis": 1
+      }
+    },
+    {
+      "path": "../models/obj/square_xy_145.obj",
+      "offset": [6.0, 0.0, 0.0],
+      "material_index": 0,
+      "boundary_condition": {
+        "type": "bend",
+        "ratio": 0.01,
+        "velocity": -0.02,
+        "axis": 0
+      }
+    },
+    {
+      "path": "../models/obj/square_xy_145.obj",
+      "offset": [6.0, 6.0, 0.0],
+      "material_index": 0,
+      "boundary_condition": {
+        "type": "stretch",
+        "ratio": 0.1,
+        "velocity": -0.05,
+        "axis": 0
+      }
+    },
+    {
+      "path": "../models/obj/square_xy_145.obj",
+      "offset": [3.0, 6.0, 0.0],
+      "material_index": 0,
+      "boundary_condition": {
+        "type": "stretch",
+        "ratio": 0.1,
+        "velocity": 0.05,
+        "axis": 0
+      }
+    },
+    {
+      "path": "../models/obj/square_xy_145.obj",
+      "offset": [0.0, 6.0, 0.0],
+      "material_index": 0,
+      "boundary_condition": {
+        "type": "stretch",
+        "ratio": 0.1,
+        "velocity": 0.05,
+        "axis": 1
+      }
+    }
+  ],
+  "material_models": [
+    {
+      "youngs_modulus": 1e5,
+      "poissons_ratio": 0.45,
+      "density": 1e3,
+      "energy": "Corot"
+    }
+  ],
+  "mixed_variables": ["mixed-stretch"],
+  "variables": []
+}

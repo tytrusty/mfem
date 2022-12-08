@@ -1,0 +1,12 @@
+[submodule "deps/polyscope"]
+	path = deps/polyscope
+	url = https://github.com/nmwsharp/polyscope.git
+[submodule "deps/libigl"]
+	path = deps/libigl
+	url = https://github.com/libigl/libigl.git
+[submodule "deps/Bartels"]
+	path = deps/Bartels
+	url = https://github.com/dilevin/Bartels.git
+[submodule "deps/amgcl"]
+	path = deps/amgcl
+	url = https://github.com/ddemidov/amgcl
