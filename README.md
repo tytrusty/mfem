@@ -1,4 +1,4 @@
-# Mixed FEM
+# Mixed Variational Finite Elements for Implicit Simulation of Deformables
 
 <img src="imgs/teaser.jpg">
 
